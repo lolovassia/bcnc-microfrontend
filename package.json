@@ -1,0 +1,21 @@
+{
+  "name": "bcnc-microfrontends",
+  "description": "Microfrontends created by Rodrigo Vassia",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "./host",
+    "./users",
+    "./albums",
+    "./photos",
+    "./components"
+  ],
+  "scripts": {
+    "start": "concurrently \"yarn --cwd host start\"",
+    "future-start": "concurrently \"yarn --cwd host start\" \"yarn --cwd users start\" \"yarn --cwd albums start\" \"yarn --cwd photos start\" \"yarn --cwd components start\"",
+    "build": "concurrently \"npm --prefix checkout run build\" \"npm --prefix home run build\" \"npm --prefix shop run build\""
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

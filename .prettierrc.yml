@@ -1,0 +1,19 @@
+plugins:
+  - prettier-plugin-tailwindcss
+  - '@trivago/prettier-plugin-sort-imports'
+
+semi: true
+trailingComma: all
+singleQuote: true
+printWidth: 80
+endOfLine: lf
+
+importOrder:
+  - '^react$'
+  - '^[@][a-z0-9](.)$'
+  - '^@\/(utils\/(jest|testing))(.*)$'
+  - '^((.)\/jest\/)(.)$'
+  - '^@\/(.*)$'
+  - '^[.]+\/(.*)$'
+importOrderSeparation: true
+importOrderSortSpecifiers: true
