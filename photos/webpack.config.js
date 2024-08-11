@@ -7,7 +7,7 @@ const deps = require('./package.json').dependencies;
 
 module.exports = (_, argv) => ({
   output: {
-    publicPath: 'http://localhost:3002/',
+    publicPath: 'http://localhost:3003/',
   },
 
   resolve: {
@@ -15,7 +15,7 @@ module.exports = (_, argv) => ({
   },
 
   devServer: {
-    port: 3002,
+    port: 3003,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, 'src')],
   },
@@ -45,7 +45,7 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: 'albums',
+      name: 'photos',
       filename: 'remoteEntry.js',
       remotes: {},
       exposes: {},
