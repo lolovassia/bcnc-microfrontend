@@ -11,8 +11,7 @@
     "./components"
   ],
   "scripts": {
-    "start": "concurrently \"yarn --cwd host start\"",
-    "future-start": "concurrently \"yarn --cwd host start\" \"yarn --cwd users start\" \"yarn --cwd albums start\" \"yarn --cwd photos start\" \"yarn --cwd components start\"",
+    "start": "concurrently \"yarn --cwd host start\" \"yarn --cwd users start\" \"yarn --cwd albums start\" \"yarn --cwd photos start\" \"yarn --cwd components start\"",
     "build": "concurrently \"npm --prefix checkout run build\" \"npm --prefix home run build\" \"npm --prefix shop run build\""
   },
   "dependencies": {
