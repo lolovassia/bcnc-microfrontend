@@ -8,6 +8,6 @@ const config: Config = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('daisyui')],
 };
 export default config;
