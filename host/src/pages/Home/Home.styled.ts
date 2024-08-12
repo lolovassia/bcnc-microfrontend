@@ -7,7 +7,3 @@ export const CenteredContainerStyled = styled.div`
   gap: 15px;
   height: 100vh;
 `;
-
-export const TitleStyled = styled.h4`
-  color: gray;
-`;
