@@ -2,14 +2,22 @@ import ReactDOM from 'react-dom/client';
 
 import React from 'react';
 
-import BasicCard from '@/components/Card';
+import Breadcrumb from '@/components/Breadcrumb';
+import Card from '@/components/Card';
+import Container from '@/components/Container';
 
 import './index.css';
 
 const App = () => (
-  <div>
-    <BasicCard onClick={() => null}>Hola</BasicCard>
-  </div>
+  <Container>
+    <Card onClick={() => null}>Hola</Card>
+    <Breadcrumb
+      items={[
+        { label: 'Home', href: '/' },
+        { label: 'Products', href: '/products' },
+      ]}
+    />
+  </Container>
 );
 
 const rootElement = document.getElementById('app');

@@ -1,4 +1,4 @@
-export interface BasicCardProps {
+export interface CardProps {
   onClick: () => void;
   children: React.ReactNode;
 }

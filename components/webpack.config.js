@@ -53,7 +53,11 @@ module.exports = (_, argv) => ({
       name: 'components',
       filename: 'remoteEntry.js',
       remotes: {},
-      exposes: {},
+      exposes: {
+        './Container': './src/components/Container/Container.tsx',
+        './Card': './src/components/Card/Card.tsx',
+        './Breadcrumb': './src/components/Breadcrumb/Breadcrumb.tsx',
+      },
       shared: {
         ...deps,
         react: {
