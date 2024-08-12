@@ -3,14 +3,6 @@ import { CardProps } from '@components/Card/Card.types';
 
 import * as React from 'react';
 
-export default function Card({
-  onClick,
-  children,
-  isActive = false,
-}: CardProps) {
-  return (
-    <CardStyled onClick={onClick} isActive={isActive}>
-      {children}
-    </CardStyled>
-  );
+export default function Card({ onClick, children }: CardProps) {
+  return <CardStyled onClick={onClick}>{children}</CardStyled>;
 }

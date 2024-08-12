@@ -5,9 +5,14 @@ export const CardStyled = styled.div<{ isActive?: boolean }>`
   color: white;
   min-width: 250px;
   cursor: pointer;
-  text-align: center;
   padding: 20px;
   border-radius: 6px;
+  min-height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 500;
 
   &:hover {
     background-color: #757373;
