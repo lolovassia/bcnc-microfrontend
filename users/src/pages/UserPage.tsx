@@ -1,5 +1,16 @@
 import * as React from 'react';
 
+import { useUsers } from '@/hooks/useUsers';
+
+const Container = React.lazy(() => import('components/Container'));
+
 export default function UserPage() {
-  return <div style={{ color: 'white' }}>Se importo la pag de users</div>;
+  const { users } = useUsers();
+
+  console.log('sers', users);
+  return (
+    <Container>
+      <div>USER</div>
+    </Container>
+  );
 }

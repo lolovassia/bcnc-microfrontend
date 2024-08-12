@@ -1,9 +1,10 @@
 import { CenteredContainerStyled } from '@pages/Home/Home.styled';
-import Card from 'components/Card';
-import Container from 'components/Container';
 import { useNavigate } from 'react-router-dom';
 
 import * as React from 'react';
+
+const Container = React.lazy(() => import('components/Container'));
+const Card = React.lazy(() => import('components/Card'));
 
 export default function Home() {
   const navigate = useNavigate();
