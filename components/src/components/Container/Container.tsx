@@ -1,5 +1,7 @@
+import { ContainerStyled } from '@components/Container/Container.styled';
+
 import React, { PropsWithChildren } from 'react';
 
 export default function Container({ children }: PropsWithChildren) {
-  return <div className="container mx-auto">{children}</div>;
+  return <ContainerStyled>{children}</ContainerStyled>;
 }

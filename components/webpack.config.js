@@ -56,7 +56,6 @@ module.exports = (_, argv) => ({
       exposes: {
         './Container': './src/components/Container/Container.tsx',
         './Card': './src/components/Card/Card.tsx',
-        './Breadcrumb': './src/components/Breadcrumb/Breadcrumb.tsx',
       },
       shared: {
         ...deps,

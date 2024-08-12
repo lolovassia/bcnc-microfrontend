@@ -1,14 +1,16 @@
+import { CardStyled } from '@components/Card/Card.styled';
+import { CardProps } from '@components/Card/Card.types';
+
 import * as React from 'react';
 
-import { CardProps } from './Card.types';
-
-export default function Card({ onClick, children }: CardProps) {
+export default function Card({
+  onClick,
+  children,
+  isActive = false,
+}: CardProps) {
   return (
-    <div
-      className="card bg-base-100 w-96 shadow-xl cursor-pointer"
-      onClick={onClick}
-    >
-      <div className="card-body">{children}</div>
-    </div>
+    <CardStyled onClick={onClick} isActive={isActive}>
+      {children}
+    </CardStyled>
   );
 }
