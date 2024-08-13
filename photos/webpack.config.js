@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const Dotenv = require('dotenv-webpack');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const deps = require('./package.json').dependencies;
 
@@ -12,6 +13,10 @@ module.exports = (_, argv) => ({
 
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
+    plugins: [new TsconfigPathsPlugin({ configFile: './tsconfig.json' })],
+    alias: {
+      '@': path.resolve(__dirname, 'src/'),
+    },
   },
 
   devServer: {
@@ -47,8 +52,12 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: 'photos',
       filename: 'remoteEntry.js',
-      remotes: {},
-      exposes: {},
+      remotes: {
+        components: 'components@http://localhost:3004/remoteEntry.js',
+      },
+      exposes: {
+        './PhotoPage': './src/pages/PhotoPage.tsx',
+      },
       shared: {
         ...deps,
         react: {

@@ -5,7 +5,7 @@ import React, { Suspense } from 'react';
 const UserPage = React.lazy(() => import('users/UserPage'));
 const AlbumPage = React.lazy(() => import('albums/AlbumPage'));
 const Loading = React.lazy(() => import('components/Loading'));
-// const PhotoPage = React.lazy(() => import('photos/PhotoPage'));
+const PhotoPage = React.lazy(() => import('photos/PhotoPage'));
 
 export default function Router() {
   return (
@@ -20,21 +20,21 @@ export default function Router() {
           }
         />
         <Route
-          path="/users/:id"
+          path="/users/:userId"
           element={
             <Suspense fallback={<Loading />}>
               <AlbumPage />
             </Suspense>
           }
         />
-        {/* <Route
-          path="/albums/:id"
+        <Route
+          path="/users/:userId/albums/:albumId"
           element={
             <Suspense fallback={<Loading />}>
               <PhotoPage />
             </Suspense>
           }
-        /> */}
+        />
       </Routes>
     </BrowserRouter>
   );
