@@ -1,10 +1,45 @@
+import { createColumnHelper } from '@tanstack/react-table';
+
+import { useMemo } from 'react';
+
 import { useGetUsers } from '@/api/getUsers';
+import { TableColumns } from '@/types/table';
+import { Users } from '@/types/users';
+
+const columnHelper = createColumnHelper<Users>();
 
 export const useUsers = () => {
   const { data, isInitialLoading } = useGetUsers();
 
+  const columns: TableColumns<Users> = useMemo(
+    () => [
+      columnHelper.accessor('name', {
+        cell: (info) => info.getValue(),
+        footer: (info) => info.column.id,
+      }),
+      columnHelper.accessor('username', {
+        cell: (info) => info.getValue(),
+        footer: (info) => info.column.id,
+      }),
+      columnHelper.accessor('email', {
+        cell: (info) => info.getValue(),
+        footer: (info) => info.column.id,
+      }),
+      columnHelper.accessor('phone', {
+        cell: (info) => info.getValue(),
+        footer: (info) => info.column.id,
+      }),
+      columnHelper.accessor('website', {
+        cell: (info) => info.getValue(),
+        footer: (info) => info.column.id,
+      }),
+    ],
+    [],
+  );
+
   return {
     users: data,
+    columns,
     isInitialLoading,
   };
 };

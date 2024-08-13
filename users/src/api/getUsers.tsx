@@ -16,6 +16,6 @@ export const useGetUsers = (options?: UseQueryOptions<Users>) =>
   useQuery({
     queryKey: getUsersQueryKey(),
     queryFn: () => getUsers(),
-    staleTime: 6000,
+    staleTime: Infinity,
     ...options,
   });
