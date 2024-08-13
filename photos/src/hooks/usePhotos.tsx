@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import { useGetAlbums } from '@/api/getAlbums';
 import { useGetPhotos } from '@/api/getPhotos';
 import { Photos } from '@/types/photos';
 
@@ -8,6 +9,7 @@ export const usePhotos = (albumId: number, page: number) => {
   const [hideSeeMore, setHideSeeMore] = useState(false);
 
   const { data, isLoading } = useGetPhotos(albumId, page);
+  const { data: album } = useGetAlbums(albumId);
 
   useEffect(() => {
     if (data && data.length === 0) setHideSeeMore(true);
@@ -16,6 +18,7 @@ export const usePhotos = (albumId: number, page: number) => {
 
   return {
     photos,
+    currentAlbum: album,
     isLoading,
     hideSeeMore,
   };

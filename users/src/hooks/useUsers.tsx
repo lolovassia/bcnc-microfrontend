@@ -1,7 +1,7 @@
 import { createColumnHelper } from '@tanstack/react-table';
 import { useNavigate } from 'react-router-dom';
 
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import React from 'react';
 
 import { useGetUsers } from '@/api/getUsers';
@@ -38,12 +38,16 @@ export const useUsers = () => {
         header: 'Albums',
         size: 40,
         cell: ({ row: { original } }) => (
-          <Button onClick={() => navigate(`/users/${original.id}`)}>Ver</Button>
+          <Button onClick={() => navigate(`/users/${original.id}`)}>See</Button>
         ),
       }),
     ],
     [],
   );
+
+  useEffect(() => {
+    if (data) localStorage.setItem('users', JSON.stringify(data));
+  }, [data]);
 
   return {
     users: data,

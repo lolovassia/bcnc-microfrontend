@@ -19,21 +19,27 @@ export default function AlbumPage() {
 
   if (!userId) throw new Error('No userId provided');
 
-  const { albums, columns, isLoading } = useAlbums(parseInt(userId));
+  const { albums, columns, isLoading, currentUser } = useAlbums(
+    parseInt(userId),
+  );
 
-  if (isLoading) return <Loading>Se estan cargando los albums</Loading>;
-
-  if (!albums || albums.length === 0)
-    return <TitleStyled>No albums found</TitleStyled>;
+  if (isLoading) return <Loading>Albums are loading...</Loading>;
 
   return (
     <Container>
       <CenteredContainerStyled>
         <Return onClick={() => navigate('/')} />
-        <TitleStyled>
-          Página renderizada por microfrontend - Albums y Components
-        </TitleStyled>
-        <Table data={albums} columns={columns} loading={isLoading} />
+
+        {albums && albums.length > 0 ? (
+          <React.Fragment>
+            <TitleStyled>
+              Albums by user: {`${currentUser?.name} ${currentUser?.username}`}
+            </TitleStyled>
+            <Table data={albums} columns={columns} loading={isLoading} />
+          </React.Fragment>
+        ) : (
+          <TitleStyled>No albums found</TitleStyled>
+        )}
       </CenteredContainerStyled>
     </Container>
   );

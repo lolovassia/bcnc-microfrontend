@@ -6,7 +6,10 @@ import { Albums } from '@/types/albums';
 
 const QUERY_KEY = 'getAlbums';
 
-export const getAlbumsQueryKey = () => [QUERY_KEY];
+export const getAlbumsQueryKey = (userId: number) => [
+  QUERY_KEY,
+  `userId:${userId}`,
+];
 
 export const getAlbums = async (userId: number) => {
   return await get<Albums>('https://jsonplaceholder.typicode.com/albums', {
@@ -21,7 +24,7 @@ export const useGetAlbums = (
   options?: UseQueryOptions<Array<Albums>>,
 ) =>
   useQuery({
-    queryKey: getAlbumsQueryKey(),
+    queryKey: getAlbumsQueryKey(userId),
     queryFn: () => getAlbums(userId),
     staleTime: Infinity,
     ...options,

@@ -6,10 +6,13 @@ import { Photos } from '@/types/photos';
 
 const QUERY_KEY = 'getPhotos';
 
-export const getPhotosQueryKey = (page: number) => [QUERY_KEY, `page:${page}`];
+export const getPhotosQueryKey = (albumId: number, page: number) => [
+  QUERY_KEY,
+  `albumId:${albumId}`,
+  `page:${page}`,
+];
 
 export const getPhotos = async (albumId: number, page: number) => {
-  console.log('getPhotos', albumId, page);
   return await get<Photos>('https://jsonplaceholder.typicode.com/photos', {
     params: {
       _limit: 10,
@@ -25,7 +28,7 @@ export const useGetPhotos = (
   options?: UseQueryOptions<Array<Photos>>,
 ) =>
   useQuery({
-    queryKey: getPhotosQueryKey(page),
+    queryKey: getPhotosQueryKey(albumId, page),
     queryFn: () => getPhotos(albumId, page),
     staleTime: Infinity,
     ...options,

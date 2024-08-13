@@ -2,7 +2,7 @@ import LazyLoad from 'react-lazyload';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import * as React from 'react';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import { usePhotos } from '@/hooks/usePhotos';
 import {
@@ -24,30 +24,42 @@ export default function PhotoPage() {
 
   if (!albumId) throw new Error('No albumId provided');
 
-  const { photos, isLoading, hideSeeMore } = usePhotos(parseInt(albumId), page);
+  const { photos, isLoading, hideSeeMore, currentAlbum } = usePhotos(
+    parseInt(albumId),
+    page,
+  );
 
-  const TextBtn = isLoading ? 'Se estan cargando las fotos' : 'Ver más';
+  const TextBtn = useMemo(
+    () => (isLoading ? 'Photos are loading...' : 'See more'),
+    [isLoading],
+  );
 
-  if (!photos || photos.length === 0)
-    return <TitleStyled>No photos found</TitleStyled>;
+  const TitleAlbum = useMemo(
+    () => currentAlbum?.[0]?.title ?? '',
+    [currentAlbum],
+  );
 
   return (
     <Container>
       <CenteredContainerStyled>
         <Return onClick={() => navigate(`/users/${userId}`)} />
-        <TitleStyled>
-          Página renderizada por microfrontend - Photos, Components
-        </TitleStyled>
-        <CardContainerStyled>
-          {photos.map(({ id, title, thumbnailUrl }) => (
-            <CardStyled key={id}>
-              <LazyLoad height={200} offset={100}>
-                <img src={thumbnailUrl} alt={title} />
-              </LazyLoad>
-              <CardTitleStyled>{title}</CardTitleStyled>
-            </CardStyled>
-          ))}
-        </CardContainerStyled>
+
+        {photos && photos.length > 0 ? (
+          <CardContainerStyled>
+            <TitleStyled>Photos by album: {TitleAlbum}</TitleStyled>
+
+            {photos.map(({ id, title, thumbnailUrl }) => (
+              <CardStyled key={id}>
+                <LazyLoad height={200} offset={100}>
+                  <img src={thumbnailUrl} alt={title} />
+                </LazyLoad>
+                <CardTitleStyled>{title}</CardTitleStyled>
+              </CardStyled>
+            ))}
+          </CardContainerStyled>
+        ) : (
+          <TitleStyled>No photos found</TitleStyled>
+        )}
 
         {!hideSeeMore && (
           <Button onClick={() => setPage((val) => val + 1)}>{TextBtn}</Button>

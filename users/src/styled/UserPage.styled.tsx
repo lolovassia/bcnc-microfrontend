@@ -11,7 +11,13 @@ export const CenteredContainerStyled = styled.div`
   }
 `;
 
-export const TitleStyled = styled.h5`
+export const TitleStyled = styled.h2`
+  width: 100%;
+  color: #5a5858;
+  text-align: center;
+`;
+
+export const FooterStyled = styled.h5`
   width: 100%;
   font-style: italic;
   color: #5a5858;

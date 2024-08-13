@@ -28,6 +28,7 @@ export const CardContainerStyled = styled.div`
   align-items: center;
   align-content: center;
   gap: 1px;
+  margin-top: 20px;
 
   @media (min-width: 768px) {
     flex-direction: row;
