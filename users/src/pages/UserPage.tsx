@@ -1,10 +1,11 @@
 import * as React from 'react';
 
 import { useUsers } from '@/hooks/useUsers';
-import { CenteredContainerStyled, TitleStyled } from '@/styled/UserPage.styled';
+import { CenteredContainerStyled } from '@/styled/UserPage.styled';
 
 const Container = React.lazy(() => import('components/Container'));
 const Table = React.lazy(() => import('components/Table'));
+const Title = React.lazy(() => import('components/Title'));
 
 export default function UserPage() {
   const { users, columns, isLoading } = useUsers();
@@ -12,7 +13,7 @@ export default function UserPage() {
   return (
     <Container>
       <CenteredContainerStyled>
-        <TitleStyled>Users list</TitleStyled>
+        <Title>Users list</Title>
         <Table data={users} columns={columns} loading={isLoading} />
       </CenteredContainerStyled>
     </Container>

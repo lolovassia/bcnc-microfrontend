@@ -12,13 +12,6 @@ export const CenteredContainerStyled = styled.div`
   }
 `;
 
-export const TitleStyled = styled.h5`
-  width: 100%;
-  font-style: italic;
-  color: #5a5858;
-  text-align: center;
-`;
-
 export const CardContainerStyled = styled.div`
   display: flex;
   flex-direction: column;

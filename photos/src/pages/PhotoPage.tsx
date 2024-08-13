@@ -10,12 +10,12 @@ import {
   CardStyled,
   CardTitleStyled,
   CenteredContainerStyled,
-  TitleStyled,
 } from '@/styled/PhotosPage.styled';
 
 const Container = React.lazy(() => import('components/Container'));
 const Return = React.lazy(() => import('components/Return'));
 const Button = React.lazy(() => import('components/Button'));
+const Title = React.lazy(() => import('components/Title'));
 
 export default function PhotoPage() {
   const navigate = useNavigate();
@@ -46,7 +46,7 @@ export default function PhotoPage() {
 
         {photos && photos.length > 0 ? (
           <CardContainerStyled>
-            <TitleStyled>Photos by album: {TitleAlbum}</TitleStyled>
+            <Title>Photos by album: {TitleAlbum}</Title>
 
             {photos.map(({ id, title, thumbnailUrl }) => (
               <CardStyled key={id}>
@@ -58,7 +58,7 @@ export default function PhotoPage() {
             ))}
           </CardContainerStyled>
         ) : (
-          <TitleStyled>No photos found</TitleStyled>
+          <Title>No photos found</Title>
         )}
 
         {!hideSeeMore && (
