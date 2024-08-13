@@ -47,7 +47,7 @@ export const useAlbums = (userId: number) => {
         ),
       }),
     ],
-    [],
+    [navigate],
   );
 
   const getCurrentUser = useCallback(() => {

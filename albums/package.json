@@ -5,7 +5,8 @@
     "start": "webpack serve --mode development --live-reload --hot",
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
-    "build:start": "cd dist && PORT=3001 npx serve"
+    "build:start": "cd dist && PORT=3001 npx serve",
+    "eslint": "npx eslint . --fix --ext .js,.jsx,.ts,.tsx"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
@@ -25,7 +26,7 @@
     "babel-loader": "^8.2.2",
     "css-loader": "^6.3.0",
     "dotenv-webpack": "^8.0.1",
-    "eslint": "^9.9.0",
+    "eslint": "8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^4.6.2",
