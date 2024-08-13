@@ -6,7 +6,7 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const deps = require('./package.json').dependencies;
 
-module.exports = (_, argv) => ({
+module.exports = () => ({
   output: {
     publicPath: 'http://localhost:3002/',
   },

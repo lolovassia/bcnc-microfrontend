@@ -5,7 +5,8 @@
     "start": "webpack serve --mode development --live-reload --hot",
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
-    "build:start": "cd dist && PORT=3001 npx serve"
+    "build:start": "cd dist && PORT=3001 npx serve",
+    "eslint": "npx eslint . --fix --ext .js,.jsx,.ts,.tsx"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",

@@ -47,7 +47,7 @@ export const useAlbums = (userId: number) => {
         ),
       }),
     ],
-    [navigate],
+    [navigate, userId],
   );
 
   const getCurrentUser = useCallback(() => {
@@ -56,7 +56,7 @@ export const useAlbums = (userId: number) => {
 
     const parsedUsers = JSON.parse(users);
     return parsedUsers.find(({ id }: User) => id === userId);
-  }, []);
+  }, [userId]);
 
   return {
     albums: data,

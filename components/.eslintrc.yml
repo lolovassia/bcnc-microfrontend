@@ -9,3 +9,5 @@ extends:
   - plugin:prettier/recommended
 rules:
   react/react-in-jsx-scope: off
+  '@typescript-eslint/no-require-imports': off
+  no-undef: off

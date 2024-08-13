@@ -18,7 +18,7 @@ import {
 
 import * as React from 'react';
 
-export const Table = <T extends any>({
+export const Table = <T extends object>({
   data,
   columns,
   loading,
