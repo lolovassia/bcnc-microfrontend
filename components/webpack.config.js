@@ -59,6 +59,7 @@ module.exports = (_, argv) => ({
         './Loading': './src/components/Loading/Loading.tsx',
         './Table': './src/components/Table/Table.tsx',
         './Return': './src/components/Return/Return.tsx',
+        './Button': './src/components/Button/Button.tsx',
       },
       shared: {
         ...deps,

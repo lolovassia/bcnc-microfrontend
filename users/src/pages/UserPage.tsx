@@ -13,7 +13,7 @@ export default function UserPage() {
     <Container>
       <CenteredContainerStyled>
         <TitleStyled>
-          Página renderizada por microservicios - Host, Users y Components
+          Página renderizada por microfrontend - Host, Users y Components
         </TitleStyled>
         <Table data={users} columns={columns} loading={isLoading} />
       </CenteredContainerStyled>

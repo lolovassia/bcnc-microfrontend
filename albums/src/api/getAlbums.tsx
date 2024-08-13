@@ -12,7 +12,7 @@ export const getAlbums = async () => {
   return await get<Albums>('https://jsonplaceholder.typicode.com/albums');
 };
 
-export const useGetAlbums = (options?: UseQueryOptions<Albums>) =>
+export const useGetAlbums = (options?: UseQueryOptions<Array<Albums>>) =>
   useQuery({
     queryKey: getAlbumsQueryKey(),
     queryFn: () => getAlbums(),

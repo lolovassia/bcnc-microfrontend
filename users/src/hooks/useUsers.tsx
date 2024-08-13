@@ -5,9 +5,10 @@ import { useMemo } from 'react';
 import React from 'react';
 
 import { useGetUsers } from '@/api/getUsers';
-import { SeeButtonStyled } from '@/styled/UserPage.styled';
 import { TableColumns } from '@/types/table';
 import { Users } from '@/types/users';
+
+const Button = React.lazy(() => import('components/Button'));
 
 const columnHelper = createColumnHelper<Users>();
 
@@ -19,32 +20,25 @@ export const useUsers = () => {
     () => [
       columnHelper.accessor('name', {
         cell: (info) => info.getValue(),
-        footer: (info) => info.column.id,
       }),
       columnHelper.accessor('username', {
         cell: (info) => info.getValue(),
-        footer: (info) => info.column.id,
       }),
       columnHelper.accessor('email', {
         cell: (info) => info.getValue(),
-        footer: (info) => info.column.id,
       }),
       columnHelper.accessor('phone', {
         cell: (info) => info.getValue(),
-        footer: (info) => info.column.id,
       }),
       columnHelper.accessor('website', {
         cell: (info) => info.getValue(),
-        footer: (info) => info.column.id,
       }),
       columnHelper.display({
         id: 'album',
         header: 'Albums',
         size: 40,
         cell: ({ row: { original } }) => (
-          <SeeButtonStyled onClick={() => navigate(`/users/${original.id}`)}>
-            Ver
-          </SeeButtonStyled>
+          <Button onClick={() => navigate(`/users/${original.id}`)}>Ver</Button>
         ),
       }),
     ],

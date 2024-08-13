@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import * as React from 'react';
 
@@ -11,20 +11,22 @@ const Return = React.lazy(() => import('components/Return'));
 
 export default function AlbumPage() {
   const navigate = useNavigate();
+  const { id } = useParams();
 
-  const { albums, columns, isLoading } = useAlbums();
-
-  console.log('Albums:', albums);
+  const { albums, columns, isLoading } = useAlbums(id);
 
   return (
     <Container>
       <CenteredContainerStyled>
         <Return onClick={() => navigate('/')} />
-        <TitleStyled>Página renderizada por microservicio - Albums</TitleStyled>
         <TitleStyled>
-          Listado renderizado por microservicio - Components
+          Página renderizada por microfrontend - Albums, Components
         </TitleStyled>
-        <Table data={albums} columns={columns} loading={isLoading} />
+        {albums.length === 0 ? (
+          <TitleStyled>No albums found</TitleStyled>
+        ) : (
+          <Table data={albums} columns={columns} loading={isLoading} />
+        )}
       </CenteredContainerStyled>
     </Container>
   );
