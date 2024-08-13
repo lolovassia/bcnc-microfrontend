@@ -1,15 +1,19 @@
 import { createColumnHelper } from '@tanstack/react-table';
+import { useNavigate } from 'react-router-dom';
 
 import { useMemo } from 'react';
+import React from 'react';
 
 import { useGetUsers } from '@/api/getUsers';
+import { SeeButtonStyled } from '@/styled/UserPage.styled';
 import { TableColumns } from '@/types/table';
 import { Users } from '@/types/users';
 
 const columnHelper = createColumnHelper<Users>();
 
 export const useUsers = () => {
-  const { data, isInitialLoading } = useGetUsers();
+  const { data, isLoading } = useGetUsers();
+  const navigate = useNavigate();
 
   const columns: TableColumns<Users> = useMemo(
     () => [
@@ -33,6 +37,16 @@ export const useUsers = () => {
         cell: (info) => info.getValue(),
         footer: (info) => info.column.id,
       }),
+      columnHelper.display({
+        id: 'album',
+        header: 'Albums',
+        size: 40,
+        cell: ({ row: { original } }) => (
+          <SeeButtonStyled onClick={() => navigate(`/users/${original.id}`)}>
+            Ver
+          </SeeButtonStyled>
+        ),
+      }),
     ],
     [],
   );
@@ -40,6 +54,6 @@ export const useUsers = () => {
   return {
     users: data,
     columns,
-    isInitialLoading,
+    isLoading,
   };
 };

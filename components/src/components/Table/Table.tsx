@@ -12,6 +12,7 @@ import { TableProps } from '@components/Table/Table.types';
 import {
   flexRender,
   getCoreRowModel,
+  getPaginationRowModel,
   useReactTable,
 } from '@tanstack/react-table';
 
@@ -26,6 +27,7 @@ export const Table = <T extends any>({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
   });
 
   if (loading) return <Loading>Loading table...</Loading>;

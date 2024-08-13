@@ -2,9 +2,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import React, { Suspense } from 'react';
 
-const HomePage = React.lazy(() => import('@pages/Home/Home'));
 const UserPage = React.lazy(() => import('users/UserPage'));
-// const AlbumPage = React.lazy(() => import('albums/AlbumPage'));
+const AlbumPage = React.lazy(() => import('albums/AlbumPage'));
+const Loading = React.lazy(() => import('components/Loading'));
 // const PhotoPage = React.lazy(() => import('photos/PhotoPage'));
 
 export default function Router() {
@@ -14,31 +14,23 @@ export default function Router() {
         <Route
           path="/"
           element={
-            <Suspense fallback={'Loading'}>
-              <HomePage />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/users"
-          element={
-            <Suspense fallback={'Loading'}>
+            <Suspense fallback={<Loading />}>
               <UserPage />
             </Suspense>
           }
         />
-        {/* <Route
-          path="/albums"
+        <Route
+          path="/users/:id"
           element={
-            <Suspense fallback={'Loading'}>
+            <Suspense fallback={<Loading />}>
               <AlbumPage />
             </Suspense>
           }
         />
-        <Route
-          path="/photos"
+        {/* <Route
+          path="/albums/:id"
           element={
-            <Suspense fallback={'Loading'}>
+            <Suspense fallback={<Loading />}>
               <PhotoPage />
             </Suspense>
           }

@@ -1,5 +1,3 @@
-import { useNavigate } from 'react-router-dom';
-
 import * as React from 'react';
 
 import { useUsers } from '@/hooks/useUsers';
@@ -7,22 +5,17 @@ import { CenteredContainerStyled, TitleStyled } from '@/styled/UserPage.styled';
 
 const Container = React.lazy(() => import('components/Container'));
 const Table = React.lazy(() => import('components/Table'));
-const Return = React.lazy(() => import('components/Return'));
 
 export default function UserPage() {
-  const navigate = useNavigate();
-
-  const { users, columns, isInitialLoading } = useUsers();
+  const { users, columns, isLoading } = useUsers();
 
   return (
     <Container>
       <CenteredContainerStyled>
-        <Return onClick={() => navigate('/')} />
-        <TitleStyled>Página renderizada por microservicio - Users</TitleStyled>
         <TitleStyled>
-          Listado renderizado por microservicio - Components
+          Página renderizada por microservicios - Host, Users y Components
         </TitleStyled>
-        <Table data={users} columns={columns} loading={isInitialLoading} />
+        <Table data={users} columns={columns} loading={isLoading} />
       </CenteredContainerStyled>
     </Container>
   );
