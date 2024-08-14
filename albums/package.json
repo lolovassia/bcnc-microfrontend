@@ -51,10 +51,13 @@
     "@tanstack/react-table": "^8.20.1",
     "@testing-library/react-hooks": "^8.0.1",
     "axios": "^1.7.3",
+    "compression-webpack-plugin": "^11.1.0",
+    "cssnano-webpack-plugin": "^1.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router-dom": "^6.26.0",
     "styled-components": "^6.1.12",
+    "terser-webpack-plugin": "^5.3.10",
     "tsconfig-paths-webpack-plugin": "^4.1.0"
   }
 }

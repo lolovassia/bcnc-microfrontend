@@ -3,6 +3,9 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const Dotenv = require('dotenv-webpack');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const CssNanoPlugin = require('cssnano-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 const deps = require('./package.json').dependencies;
 
@@ -74,5 +77,34 @@ module.exports = () => ({
       template: './src/index.html',
     }),
     new Dotenv(),
+    new CompressionPlugin({
+      filename: '[path][base].gz',
+      algorithm: 'gzip',
+      test: /\.(js|css|html|svg)$/,
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
+    new CompressionPlugin({
+      filename: '[path][base].br',
+      algorithm: 'brotliCompress',
+      test: /\.(js|css|html|svg)$/,
+      compressionOptions: { level: 11 },
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
   ],
+
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          compress: {
+            drop_console: true,
+          },
+        },
+      }),
+      new CssNanoPlugin(),
+    ],
+  },
 });
