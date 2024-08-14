@@ -1,7 +1,8 @@
+import { useGetAlbums } from '@api/getAlbums';
+import { useGetPhotos } from '@api/getPhotos';
+
 import { useEffect, useState } from 'react';
 
-import { useGetAlbums } from '@/api/getAlbums';
-import { useGetPhotos } from '@/api/getPhotos';
 import { Photos } from '@/types/photos';
 
 export const usePhotos = (albumId: number, page: number) => {

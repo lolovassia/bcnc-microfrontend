@@ -1,6 +1,23 @@
 {
-  "presets": ["@babel/preset-typescript", "@babel/preset-react", "@babel/preset-env"],
+  "presets": [
+    "@babel/preset-typescript",
+    "@babel/preset-react",
+    "@babel/preset-env"
+  ],
   "plugins": [
-     ["@babel/transform-runtime"]
+    ["@babel/transform-runtime"],
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "alias": {
+          "@pages": "./src/pages",
+          "@hooks": "./src/hooks",
+          "@api": "./src/api",
+          "@axios": "./src/axios",
+          "@mocks": "./src/mocks"
+        }
+      }
+    ]
   ]
 }

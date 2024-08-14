@@ -1,7 +1,7 @@
+import { get } from '@axios/http-client';
 import type { UseQueryOptions } from '@tanstack/react-query';
 import { useQuery } from '@tanstack/react-query';
 
-import { get } from '@/axios/http-client';
 import { Photos } from '@/types/photos';
 
 const QUERY_KEY = 'getPhotos';

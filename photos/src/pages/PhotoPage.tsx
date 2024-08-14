@@ -1,10 +1,10 @@
+import { usePhotos } from '@hooks/usePhotos';
 import LazyLoad from 'react-lazyload';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import * as React from 'react';
 import { useMemo, useState } from 'react';
 
-import { usePhotos } from '@/hooks/usePhotos';
 import {
   CardContainerStyled,
   CardStyled,
