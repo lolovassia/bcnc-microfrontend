@@ -1,9 +1,8 @@
+import PhotoPage from '@pages/PhotoPage';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import ReactDOM from 'react-dom/client';
 
 import React from 'react';
-
-import PhotoPage from '@/pages/PhotoPage';
 
 import './index.css';
 

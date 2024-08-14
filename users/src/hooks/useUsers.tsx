@@ -1,10 +1,10 @@
+import { useGetUsers } from '@api/getUsers';
 import { createColumnHelper } from '@tanstack/react-table';
 import { useNavigate } from 'react-router-dom';
 
 import { useEffect, useMemo } from 'react';
 import React from 'react';
 
-import { useGetUsers } from '@/api/getUsers';
 import { TableColumns } from '@/types/table';
 import { Users } from '@/types/users';
 

@@ -1,9 +1,8 @@
+import UserPage from '@pages/UserPage';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import ReactDOM from 'react-dom/client';
 
 import React from 'react';
-
-import UserPage from '@/pages/UserPage';
 
 import './index.css';
 

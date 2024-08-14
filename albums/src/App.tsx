@@ -1,9 +1,8 @@
+import AlbumPage from '@pages/AlbumPage';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import ReactDOM from 'react-dom/client';
 
 import React from 'react';
-
-import AlbumPage from '@/pages/AlbumPage';
 
 import './index.css';
 

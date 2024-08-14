@@ -1,6 +1,7 @@
+import { useUsers } from '@hooks/useUsers';
+
 import * as React from 'react';
 
-import { useUsers } from '@/hooks/useUsers';
 import { CenteredContainerStyled } from '@/styled/UserPage.styled';
 
 const Container = React.lazy(() => import('components/Container'));
