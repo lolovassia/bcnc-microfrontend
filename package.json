@@ -3,6 +3,7 @@
   "description": "Microfrontends created by Rodrigo Vassia",
   "version": "1.0.0",
   "private": true,
+  "license": "MIT",
   "workspaces": [
     "./host",
     "./users",
@@ -11,10 +12,10 @@
     "./components"
   ],
   "scripts": {
-    "install": "concurrently \"yarn --cwd host install\" \"yarn --cwd users install\" \"yarn --cwd albums install\" \"yarn --cwd photos install\" \"yarn --cwd components install\"",
-    "start": "concurrently \"yarn --cwd host start\" \"yarn --cwd users start\" \"yarn --cwd albums start\" \"yarn --cwd photos start\" \"yarn --cwd components start\"",
-    "test": "concurrently \"yarn --cwd host test\" \"yarn --cwd users test\" \"yarn --cwd albums test\" \"yarn --cwd photos test\" \"yarn --cwd components test\"",
-    "eslint": "concurrently \"yarn --cwd host eslint\" \"yarn --cwd users eslint\" \"yarn --cwd albums eslint\" \"yarn --cwd photos eslint\" \"yarn --cwd components eslint\""
+    "install": "node init.js install",
+    "start": "node init.js start",
+    "test": "node init.js test",
+    "eslint": "node init.js eslint"
   },
   "dependencies": {
     "concurrently": "^8.2.2"

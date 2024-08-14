@@ -1,6 +1,7 @@
 {
   "name": "users",
   "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
     "start": "webpack serve --mode development --live-reload --hot",
     "build": "webpack --mode production",
