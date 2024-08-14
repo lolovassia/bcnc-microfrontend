@@ -24,8 +24,13 @@
     "typeRoots": ["node_modules/@types", "src/types"],
     "paths": {
       "@/*": ["./src/*"],
-      "@pages/*": ["./src/pages/*"]
-    }
+      "@pages/*": ["./src/pages/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@api/*": ["./src/api/*"],
+      "@axios/*": ["./src/axios/*"],
+      "@mocks/*": ["./src/mocks/*"]
+    },
+    "types": ["node", "jest", "@testing-library/jest-dom"]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "build", "dist"]

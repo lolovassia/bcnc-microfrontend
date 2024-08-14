@@ -6,7 +6,8 @@
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
     "build:start": "cd dist && PORT=3001 npx serve",
-    "eslint": "npx eslint . --fix --ext .js,.jsx,.ts,.tsx"
+    "eslint": "npx eslint . --fix --ext .js,.jsx,.ts,.tsx",
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
@@ -17,13 +18,16 @@
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.5.2",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/jest": "^29.5.12",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "@typescript-eslint/eslint-plugin": "^8.0.1",
     "autoprefixer": "^10.1.0",
+    "babel-jest": "^29.7.0",
     "babel-loader": "^8.2.2",
+    "babel-plugin-module-resolver": "^5.0.2",
     "css-loader": "^6.3.0",
     "dotenv-webpack": "^8.0.1",
     "eslint": "8.57.0",

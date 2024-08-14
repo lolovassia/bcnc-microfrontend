@@ -1,10 +1,11 @@
+import { useGetAlbums } from '@api/getAlbums';
+import { EMPTY_USER } from '@mocks/user';
 import { createColumnHelper } from '@tanstack/react-table';
 import { useNavigate } from 'react-router-dom';
 
 import { useCallback, useMemo } from 'react';
 import React from 'react';
 
-import { useGetAlbums } from '@/api/getAlbums';
 import { Albums } from '@/types/albums';
 import { TableColumns } from '@/types/table';
 import { User } from '@/types/users';
@@ -12,17 +13,6 @@ import { User } from '@/types/users';
 const Button = React.lazy(() => import('components/Button'));
 
 const columnHelper = createColumnHelper<Albums>();
-
-const EMPTY_USER: User = {
-  id: 0,
-  name: '',
-  username: '',
-  email: '',
-  phone: '',
-  website: '',
-  address: undefined,
-  company: undefined,
-};
 
 export const useAlbums = (userId: number) => {
   const { data, isLoading } = useGetAlbums(userId);
