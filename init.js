@@ -1,33 +1,39 @@
-const concurrently = require("concurrently");
+const concurrently = require('concurrently');
 
-const PROJECTS = ["host", "users", "albums", "photos", "components"];
+const PROJECTS = ['host', 'users', 'albums', 'photos', 'components'];
 
-const COMMANDS = PROJECTS.map((dir) => ({
-	command: `yarn --cwd ${dir} ${process.argv[2]}`,
-	name: dir,
-	prefixColor: "green",
+const COMMANDS = PROJECTS.filter(
+  (dir) => !(process.argv[2] === 'test' && dir === 'host'),
+).map((dir) => ({
+  command: `yarn --cwd ${dir} ${process.argv[2]}`,
+  name: dir,
+  prefixColor: 'green',
 }));
 
 function message(text) {
-	console.log(text);
+  console.log(text);
 }
 
 function success() {
-	message("All commands completed successfully.");
+  message('----------------------------------------');
+  message('All commands completed successfully.');
+  message('----------------------------------------');
 }
 
 function failure(value) {
-	console.error("One or more commands failed.", value);
-	process.exit(1);
+  message('----------------------------------------');
+  console.error('One or more commands failed:');
+  message('----------------------------------------');
+  console.error(value);
+  process.exit(1);
 }
 
 function init() {
-	message("Running commands...");
-	const { result } = concurrently(COMMANDS, {
-		prefix: "name",
-	});
-	result.then(success, failure);
+  message('Running commands...');
+  const { result } = concurrently(COMMANDS, {
+    prefix: 'name',
+  });
+  result.then(success, failure);
 }
 
 init();
-
