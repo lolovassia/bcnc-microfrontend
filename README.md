@@ -130,9 +130,11 @@ Este proyecto incluye varias herramientas y prácticas recomendadas para mejorar
 
 ## Aspectos a Mejorar
 
-A pesar de los aspectos positivos, existen algunas áreas que pueden ser mejoradas:
+A pesar de los aspectos positivos, existen algunas áreas que pueden ser mejoradas pero no se realizaron por falta de tiempo:
 
 - **Cliente HTTP**: Actualmente, el cliente HTTP se reutiliza en cada proyecto. Se sugiere crear un paquete compartido para este servicio e importarlo donde sea necesario.
 - **Tipos (Types)**: De manera similar al cliente HTTP, se recomienda centralizar las definiciones de tipos en un paquete compartido para evitar la duplicación y mantener la consistencia.
 - **Diseño**: Aunque se ha priorizado la lógica sobre el diseño, el diseño actual es totalmente responsive. No obstante, se podría mejorar dedicando más tiempo a los detalles visuales.
 - **Variables de Entorno**: Aunque no se ha utilizado ningún archivo `.env` en este proyecto, es recomendable almacenar todas las variables sensibles en un archivo `.env` o en un sistema seguro como un vault.
+- **Handle errors**: Debería haber un manejador de errores que puede apalicarse tanto de manera global como en cada uno de los microfronteds.
+- **Optimización de la web**: Optimizar la web para obtener el 100% en cada una de las métricas de Google Lighthouse.
