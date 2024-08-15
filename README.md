@@ -136,5 +136,5 @@ A pesar de los aspectos positivos, existen algunas áreas que pueden ser mejorad
 - **Tipos (Types)**: De manera similar al cliente HTTP, se recomienda centralizar las definiciones de tipos en un paquete compartido para evitar la duplicación y mantener la consistencia.
 - **Diseño**: Aunque se ha priorizado la lógica sobre el diseño, el diseño actual es totalmente responsive. No obstante, se podría mejorar dedicando más tiempo a los detalles visuales.
 - **Variables de Entorno**: Aunque no se ha utilizado ningún archivo `.env` en este proyecto, es recomendable almacenar todas las variables sensibles en un archivo `.env` o en un sistema seguro como un vault.
-- **Handle errors**: Debería haber un manejador de errores que puede aplicarse tanto de manera global como en cada uno de los microfronteds.
+- **Handle errors**: Debería existir un manejador de errores que puede aplicarse tanto de manera global como en cada uno de los microfrontends.
 - **Optimización de la web**: Optimizar la web para obtener el 100% en cada una de las métricas de Google Lighthouse.
